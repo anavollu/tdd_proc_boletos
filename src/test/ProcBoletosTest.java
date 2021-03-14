@@ -20,7 +20,9 @@ class ProcBoletosTest {
 		fatura.addBoleto(new Boleto("892", new Date(), 600.00));
 		ProcessadorBoletos.processa(fatura);
 
-		assertEquals(Fatura.STATUS.PAGO, fatura.getStatus(), "erro");
+		assertEquals(Fatura.STATUS.PAGO, fatura.getStatus());
+		
+		assertEquals(fatura.getListaPagamento().size(), 3);
 	}
 
 }

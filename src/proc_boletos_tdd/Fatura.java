@@ -39,4 +39,18 @@ public class Fatura {
 	public void addBoleto(Boleto boleto) {
 		this.listaBoletos.add(boleto);
 	}
+	
+	private List<Pagamento> listaPagamento = new ArrayList<>();
+
+	public void addPagamento(Pagamento pagamento) {
+		this.listaPagamento.add(pagamento);
+	}
+	
+	public List<Pagamento> getListaPagamento() {
+		return listaPagamento;
+	}
+	
+	public List<Boleto> getListaBoletos() {
+		return listaBoletos;
+	}
 }
