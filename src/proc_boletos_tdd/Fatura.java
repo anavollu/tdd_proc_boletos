@@ -1,6 +1,8 @@
 package proc_boletos_tdd;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Fatura {
 	
@@ -31,8 +33,10 @@ public class Fatura {
 	public void setStatus(STATUS status) {
 		this.status = status;
 	}
-	public static void addBoleto(Boleto boletoA) {
-		// TODO Auto-generated method stub
-		
+	
+	private List<Boleto> listaBoletos = new ArrayList<>();
+	
+	public void addBoleto(Boleto boleto) {
+		this.listaBoletos.add(boleto);
 	}
 }
