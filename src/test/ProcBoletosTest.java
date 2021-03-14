@@ -38,4 +38,16 @@ class ProcBoletosTest {
 		assertEquals(fatura.getListaPagamento().size(), 3);
 	}
 
+	@Test
+	void testFaturaPagaAbaixoValor() {
+		Fatura fatura = new Fatura(new Date(), 2000.00, "João Ferreira");
+		fatura.addBoleto(new Boleto("890", new Date(), 600.00));
+		fatura.addBoleto(new Boleto("891", new Date(), 400.00));
+		ProcessadorBoletos.processa(fatura);
+
+		assertEquals(Fatura.STATUS.NAO_PAGO, fatura.getStatus());
+		
+		assertEquals(fatura.getListaPagamento().size(), 2);
+	}
+
 }
